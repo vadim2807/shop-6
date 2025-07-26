@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"index.js","sources":["../src/home.js"],"sourcesContent":["fetch('https://dummyjson.com/products')\n.then(res => res.json())\n.then((data) => {console.log(data.products)});\n"],"names":["res","data"],"mappings":"oCAAA,MAAM,gCAAgC,EACrC,KAAKA,GAAOA,EAAI,MAAM,EACtB,KAAMC,GAAS,CAAC,QAAQ,IAAIA,EAAK,QAAQ,CAAC,CAAC"}
