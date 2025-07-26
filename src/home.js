@@ -1,3 +1,4 @@
-fetch('https://dummyjson.com/products')
-.then(res => res.json())
-.then((data) => {console.log(data.products)});
+import { initHomePage } from "./js/handlers";
+
+document.addEventListener('DOMContentLoaded', initHomePage);
+

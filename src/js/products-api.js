@@ -1,25 +1,18 @@
 import axios from 'axios';
-import { API_BASE_URL } from './constants';
+import { API_BASE_URL, API_ENDPOINTS, ITEMS_PER_PAGE } from './constants';
 
 axios.defaults.baseURL = API_BASE_URL;
 
-export async function getProducts(endPoint) {
-    const results = await axios(endPoint);
+export async function getCategories() {
+    const results = await axios(`${API_ENDPOINTS.CATEGORIES}`);
 
     return results.data;
 }
 
-export async function getCategories() {
-    const currentPage = 1;
-    // const url = `https://dummyjson.com/products?limit=12&skip=${(currentPage - 1) * 12}`;
+export async function getProducts(currentPage) {
+    const skip = (currentPage - 1) * ITEMS_PER_PAGE;
 
-    const results = await axios({
-        params: {
-            limit: 12,
-            skip: (currentPage - 1) * 12
-        }
-    })
-    console.log(results.data);
-    return results.data.products;
+    const { data } = await axios(`?limit=${ITEMS_PER_PAGE}&skip=${skip}`);
+    return data;
 }
 
